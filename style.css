@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.escenario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+}
+
+/* Imagen interactiva de Kurumi */
+#personaje {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Pequeño efecto visual al presionar la imagen */
+#personaje:active {
+    transform: scale(0.95);
+}
+
+/* Globito estilo cómic */
+.bocadillo {
+    position: relative;
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    padding: 15px 20px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    width: 90%;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pico del bocadillo apuntando hacia Kurumi */
+.bocadillo::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 14px 11px 0 11px;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.bocadillo::before {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px 13px 0 13px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+}
+
+/* Clases para ocultar y mostrar */
+.oculto {
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
